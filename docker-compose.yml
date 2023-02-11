@@ -35,7 +35,6 @@ services:
     networks:
       - dev
     volumes:
-      - ~/.aws:/workspace/.aws:ro
       - ./services/api:/workspace/services/api
       - ./services/api/nodemon.compose.json:/workspace/services/api/nodemon.json
       - ./packages:/workspace/packages

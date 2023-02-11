@@ -9,5 +9,5 @@ export default {
 } as ComponentMeta<typeof Button>
 
 export const Primary: ComponentStory<typeof Button> = () => (
-  <Button>Sign in</Button>
+  <Button>Button</Button>
 )

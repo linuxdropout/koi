@@ -16,3 +16,5 @@ TODO.md
 *.tsbuildinfo
 dist
 docker/localstack
+
+.env
