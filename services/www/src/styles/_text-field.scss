@@ -10,8 +10,7 @@
   max-height: 54px;
   width: 100%;
   flex: 1;
-  padding: 0 23px;
-  font-size: 19px;
+  font-size: 17px;
 
   .text-field__placeholder {
     z-index: 9;
@@ -24,11 +23,14 @@
   }
 
   > input {
-    z-index: 10;
-    color: #fefefe;
-    height: 26px;
     all: unset;
+    border-radius: 23px;
+    padding: 0 23px;
+    color: #fefefe;
+    height: 54px;
+    line-height: 54px;
     width: 100%;
+    font-size: inherit;
     &::placeholder {
       color: rgba(#fefefe, 1);
     }
@@ -57,6 +59,8 @@
     color: black;
     position: absolute;
     right: 0;
+    top: 50%;
+    transform: translate(25%, -50%);
     svg {
       transform: scale(2);
     }
