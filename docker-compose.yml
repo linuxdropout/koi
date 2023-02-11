@@ -1,0 +1,63 @@
+version: "3.8"
+
+networks:
+  dev:
+
+volumes:
+  pgdata:
+    driver: local
+
+services:
+  docker-node-dev:
+    image: docker-node-dev
+    build:
+      context: .
+      dockerfile: docker-node-dev.dockerfile
+
+  www:
+    container_name: www
+    image: docker-node-dev
+    ports:
+      - 3000:3000
+    networks:
+      - dev
+    volumes:
+      - ./services/www:/workspace/services/www
+      - ./packages:/workspace/packages
+    working_dir: /workspace/services/www
+    command: yarn dev
+
+  api:
+    container_name: api
+    image: docker-node-dev
+    ports:
+      - 8080:8080
+    networks:
+      - dev
+    volumes:
+      - ~/.aws:/workspace/.aws:ro
+      - ./services/api:/workspace/services/api
+      - ./services/api/nodemon.compose.json:/workspace/services/api/nodemon.json
+      - ./packages:/workspace/packages
+    working_dir: /workspace/services/api
+    command: yarn dev
+
+  postgres:
+    image: postgres
+    build:
+      context: docker/postgres
+      dockerfile: postgres.dockerfile
+    shm_size: 8g
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=koi
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+    networks:
+      - dev
+

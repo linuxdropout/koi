@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "paths": {
+      "@koi/*": [
+        "../*"
+      ]
+    },
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "noEmit": false,
+    "lib": [
+      "ESNext"
+    ],
+  },
+  "references": [
+    {
+      "path": "../../packages/types"
+    }
+  ]
+}

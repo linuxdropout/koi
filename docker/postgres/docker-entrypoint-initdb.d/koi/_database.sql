@@ -1,0 +1,4 @@
+CREATE DATABASE koi
+  WITH
+    OWNER koi
+    ENCODING UTF8;

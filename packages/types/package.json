@@ -1,0 +1,5 @@
+{
+  "name": "@koi/types",
+  "private": true,
+  "types": "index"
+}

@@ -1,0 +1,25 @@
+.button {
+  @extend .typography--md;
+  @extend .typography--bold;
+
+  min-width: 140px;
+  line-height: 45px;
+  border-radius: 13px;
+  border: none;
+  background-color: $button-bg;
+  transition-property: background-color, box-shadow;
+  transition-timing-function: ease-in-out;
+  transition-duration: 200ms;
+
+  cursor: pointer;
+  color: $purple;
+  box-shadow: inset 0 0 1px 1px rgba($purple-hover, 0.1);
+
+  &:hover {
+    background-color: $button-bg-hover;
+    color: $purple-hover;
+  }
+  &.button--active {
+    box-shadow: inset 0 0 1px 3px rgba($purple-hover, 0.5);
+  }
+}
